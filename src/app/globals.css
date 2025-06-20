@@ -23,4 +23,18 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  height: 100%;
+}
+
+/* Fix for potential sidebar height issues */
+.side-nav {
+  transition: width 0.3s ease;
+  min-height: calc(100vh - [navbar-height] - [footer-height]);
+  /* Example: min-height: calc(100vh - 56px - 60px); */
+}
+
+
+/* Main content adjustment */
+.main-content {
+  transition: margin-left 0.3s ease;
 }
