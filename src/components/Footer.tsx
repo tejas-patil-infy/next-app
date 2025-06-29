@@ -1,12 +1,10 @@
-'use client';
-
+'use client'
 export default function Footer() {
   return (
-    // <footer className="bg-dark text-white text-center py-4 w-100">
-    <footer className="bg-dark text-white text-center py-3 w-100 mt-auto">
-      <div className="container">
-        <p className="mb-0">© 2025 Tejas Patil. All rights reserved.</p>
-      </div>
-    </footer>
+    <footer className="bg-[#eee] text-[gray] text-center pt-1 w-full">
+        <div>
+          <p className="mb-0">Copyright @2025 All rights reserved.</p>
+        </div>
+      </footer>
   );
 }

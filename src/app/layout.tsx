@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import CustomNavbar from "@/components/Navbar.client";
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from "@/components/Footer";
-import SideNav from "@/components/SideNav.client";
+import SidebarNavigation from "@/components/SideNavbar";
+import Navbar from "@/components/Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,16 +27,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}>
-        <CustomNavbar />
-        <div className="flex flex-1">
-          <SideNav />
-          <main className="flex-grow main-content">
-            {children}
-          </main>
+    <html lang="en">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        <div className="min-h-screen flex flex-col">
+          {/* Top Navigation Bar */}
+          <Navbar />
+
+          {/* Main Layout Container */}
+          <div className="flex flex-1 h-full">
+            {/* Sidebar Navigation */}
+            <SidebarNavigation />
+            <main className="flex-1 bg-gray-50 flex flex-col justify-between">
+              {children}
+              <Footer />
+            </main>
+          </div>
         </div>
-        <Footer />
       </body>
     </html>
   );
