@@ -6,12 +6,18 @@ import { HelpCircle, ChevronDown, Equal } from "lucide-react";
 
 export default function Navbar() {
   const [openDropdown, setOpenDropdown] = useState(false);
+  const [selectedMenu, setSelectedMenu] = useState<String>("Core Team");
   const pathname = usePathname();
+  const roles = ["Core Team", "Capex PM", "Budget PM", "Early Engagement PM"]
 
   const isLoginPage = pathname === "/";
 
   const handleProfileClick = () => {
     setOpenDropdown(!openDropdown);
+  }
+
+  const handleMenu = (name: String) => {
+    setSelectedMenu(name);
   }
 
   return (
@@ -192,18 +198,18 @@ export default function Navbar() {
               <hr className="dropdown-divider" />
               <p className="dropdown-subtitle">Role Selection</p>
               <div className="region-list">
-                {/* {userList.map((name) => ( */}
-                <div
-                  // key={name}
-                  className={`dropdown-item ${openDropdown ? 'selected' : ''}`}
-                  onClick={() => ''}
-                >
-                  <span className="checkmark">
-                    {openDropdown && '✔'}
-                  </span>
-                  {/* {name} */}Tejas
-                </div>
-                {/* ))} */}
+                {roles.map((name) => (
+                  <div
+                    key={name}
+                    className={`dropdown-item ${name === selectedMenu ? 'selected' : ''}`}
+                    onClick={() => handleMenu(name)}
+                  >
+                    <span className="checkmark">
+                      {name === selectedMenu && '✔'}
+                    </span>
+                    {name}
+                  </div>
+                ))}
               </div>
               <hr className="dropdown-divider" />
               <div className="logout" onClick={() => ''}>Sign Out</div>
