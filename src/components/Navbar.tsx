@@ -187,7 +187,7 @@ export default function Navbar() {
             <ChevronDown size={16} style={{ marginLeft: 4, color: "#9ca3af" }} />
             <div className="dropdown-menu" style={{ display: openDropdown ? 'block' : 'none' }}>
               <p className="dropdown-title">
-                Signed in as firstName lastName
+                Signed in as Tejas Patil
               </p>
               <hr className="dropdown-divider" />
               <p className="dropdown-subtitle">Role Selection</p>
@@ -201,7 +201,7 @@ export default function Navbar() {
                   <span className="checkmark">
                     {openDropdown && '✔'}
                   </span>
-                  {/* {name} */}FirstName
+                  {/* {name} */}Tejas
                 </div>
                 {/* ))} */}
               </div>
