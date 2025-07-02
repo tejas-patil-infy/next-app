@@ -42,9 +42,9 @@ export default function LoginPage() {
             borderRadius: 8,
           }}
         >
-          <h1 style={{ textAlign: "center" }}>Login</h1>
+          <h1 style={{ textAlign: "center", color: "#171717" }}>Login</h1>
           <form onSubmit={handleSubmit}>
-            <label htmlFor="email" style={{ display: "block", marginBottom: 4 }}>
+            <label htmlFor="email" style={{ display: "block", marginBottom: 4, color: "#171717" }}>
               Email:
             </label>
             <input
@@ -62,7 +62,7 @@ export default function LoginPage() {
               }}
             />
 
-            <label htmlFor="password" style={{ display: "block", marginBottom: 4 }}>
+            <label htmlFor="password" style={{ display: "block", marginBottom: 4, color: "#171717" }}>
               Password:
             </label>
             <input
