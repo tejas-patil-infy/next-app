@@ -1,13 +1,18 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { usePathname } from "next/navigation";
-import { Search, Bell, HelpCircle, Settings, ChevronDown, Hamburger, HamburgerIcon, LucideHamburger, Equal } from "lucide-react";
+import { HelpCircle, ChevronDown, Equal } from "lucide-react";
 
 export default function Navbar() {
+  const [openDropdown, setOpenDropdown] = useState(false);
   const pathname = usePathname();
 
-  const isLoginPage = pathname === "/"; // login page at root path
+  const isLoginPage = pathname === "/";
+
+  const handleProfileClick = () => {
+    setOpenDropdown(!openDropdown);
+  }
 
   return (
     <nav
@@ -157,6 +162,7 @@ export default function Navbar() {
               borderRadius: "0.5rem",
               transition: "background-color 0.2s",
             }}
+            onClick={handleProfileClick}
           // onMouseEnter={(e) => e.target.style.backgroundColor = "#374151"}
           // onMouseLeave={(e) => e.target.style.backgroundColor = "transparent"}
           >
@@ -179,6 +185,29 @@ export default function Navbar() {
             </div>
             <span style={{ fontSize: 14, fontWeight: "500" }}>Tejas</span>
             <ChevronDown size={16} style={{ marginLeft: 4, color: "#9ca3af" }} />
+            <div className="dropdown-menu" style={{ display: openDropdown ? 'block' : 'none' }}>
+              <p className="dropdown-title">
+                Signed in as firstName lastName
+              </p>
+              <hr className="dropdown-divider" />
+              <p className="dropdown-subtitle">Role Selection</p>
+              <div className="region-list">
+                {/* {userList.map((name) => ( */}
+                <div
+                  // key={name}
+                  className={`dropdown-item ${openDropdown ? 'selected' : ''}`}
+                  onClick={() => ''}
+                >
+                  <span className="checkmark">
+                    {openDropdown && '✔'}
+                  </span>
+                  {/* {name} */}FirstName
+                </div>
+                {/* ))} */}
+              </div>
+              <hr className="dropdown-divider" />
+              <div className="logout" onClick={() => ''}>Sign Out</div>
+            </div>
           </div>
         </div>
       )}

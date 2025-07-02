@@ -86,14 +86,14 @@ const SidebarNavigation = () => {
       }}
     >
       {/* Navigation Items */}
-      <nav className="flex-1 pt-4">
+      <nav className="flex-1 pt-4 overflow-scroll">
         <ul style={{ paddingLeft: "0px" }}>
-          {navigationItems.map((item) => {
+          {navigationItems.map((item, i) => {
             const Icon = item.icon;
             const isActive = pathname.startsWith(item.href);
 
             return (
-              <li key={item.name} title={item.name}>
+              <li key={i} title={item.name}>
                 <Link
                   href={item.href}
                   className={`flex items-center px-3 py-3 rounded-lg transition-all duration-200 group ${isActive

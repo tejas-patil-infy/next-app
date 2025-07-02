@@ -27,23 +27,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <div className="min-h-screen flex flex-col">
-          {/* Top Navigation Bar */}
-          <Navbar />
-
-          {/* Main Layout Container */}
-          <div className="flex flex-1 h-full">
-            {/* Sidebar Navigation */}
-            <SidebarNavigation />
-            <main className="flex-1 bg-gray-50 flex flex-col justify-between">
+    <html lang="en" className="h-full">
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}>
+        <Navbar />
+        <div className="flex flex-1 overflow-hidden">
+          <SidebarNavigation />
+          {/* Content Area with scrollable children */}
+          <main className="flex-1 flex flex-col overflow-hidden bg-gray-50">
+            <div className="flex-1 overflow-y-auto">
               {children}
-              <Footer />
-            </main>
-          </div>
+            </div>
+            <Footer />
+          </main>
         </div>
       </body>
     </html>
