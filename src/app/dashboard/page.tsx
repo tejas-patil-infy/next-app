@@ -5,7 +5,11 @@ export default function DashboardPage() {
   const cards = [
     { title: "Card 1", content: "This is my card content", type: "pie chart" },
     { title: "Card 2", content: "This is my card content", type: "pie chart" },
-    { title: "Card 3", content: "This is my card content", type: "graph chart" },
+    {
+      title: "Card 3",
+      content: "This is my card content",
+      type: "graph chart",
+    },
     { title: "Card 4", content: "This is my card content", type: "bar chart" },
     { title: "Card 5", content: "This is my card content", type: "pie chart" },
     { title: "Card 6", content: "This is my card content", type: "bar chart" },
