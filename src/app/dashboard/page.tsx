@@ -1,93 +1,45 @@
 "use client";
-
-import React, { useState, useEffect } from "react";
-import { AgGridReact } from "ag-grid-react";
-import { AllCommunityModule, ModuleRegistry } from 'ag-grid-community';
-import "ag-grid-community/styles/ag-grid.css";
-import "ag-grid-community/styles/ag-theme-alpine.css";
-
-// Register all Community features
-ModuleRegistry.registerModules([AllCommunityModule]);
-
-interface RowData {
-  category: string;
-  program: string;
-  spendingDriver: string;
-  total: number;
-  dept: string;
-  site: string;
-  modifiedBy: string;
-  updateTimestamp: string;
-}
+import React from "react";
 
 export default function DashboardPage() {
-  const [columnDefs] = useState([
-    { field: "category", headerName: "Category", flex: 1, sortable: true, filter: true },
-    { field: "program", headerName: "Program", flex: 1, sortable: true, filter: true },
-    { field: "spendingDriver", headerName: "Spending Driver", flex: 1, sortable: true, filter: true },
-    { field: "total", headerName: "Total", flex: 1, sortable: true, filter: "agNumberColumnFilter" },
-    { field: "dept", headerName: "Dept", flex: 1, sortable: true, filter: true },
-    { field: "site", headerName: "Site", flex: 1, sortable: true, filter: true },
-    { field: "modifiedBy", headerName: "Modified By", flex: 1, sortable: true, filter: true },
-    { field: "updateTimestamp", headerName: "Update Time Stamp", flex: 1, sortable: true, filter: "agDateColumnFilter" },
-  ]);
-
-  const [rowData, setRowData] = useState<RowData[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await fetch("http://localhost:4000/api/data");
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data: RowData[] = await response.json();
-        setRowData(data);
-      } catch (error) {
-        console.error("Failed to fetch data:", error);
-      } finally {
-        setLoading(false);
-      }
-    }
-    fetchData();
-  }, []);
+  const cards = [
+    { title: "Card 1", content: "This is my card content", type: "pie chart" },
+    { title: "Card 2", content: "This is my card content", type: "pie chart" },
+    {
+      title: "Card 3",
+      content: "This is my card content",
+      type: "graph chart",
+    },
+    { title: "Card 4", content: "This is my card content", type: "bar chart" },
+    { title: "Card 5", content: "This is my card content", type: "pie chart" },
+    { title: "Card 6", content: "This is my card content", type: "bar chart" },
+  ];
 
   return (
-    <div className="p-6">
-      <div className="mb-6">
-        <h1 className="text-2xl font-bold text-gray-900">Collab Data- Next Js</h1>
-        <p className="text-gray-600 mt-1">Manage and analyze your collaborative data</p>
-      </div>
+    <div className="p-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {cards.map((card, index) => (
+          <div
+            key={index}
+            className="bg-white rounded-md shadow-[0_4px_12px_rgba(0,0,0,0.15)] p-3 overflow-hidden
+                      flex flex-col h-72 hover:shadow-[0_8px_24px_rgba(0,0,0,0.2)] transition-shadow duration-300
+                      border border-gray-200"
+          >
+            {/* Card Header with Underline */}
+            <div className="text-center p-2 pb-3 border-b-2 border-gray-200">
+              <h3 className="text-xl font-bold text-gray-800">{card.title}</h3>
+            </div>
 
-      {loading ? (
-        <div className="flex items-center justify-center h-96">
-          <div className="flex items-center space-x-2">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
-            <p className="text-gray-600">Loading data...</p>
+            {/* Card Body */}
+            <div className="flex-1 flex flex-col items-center justify-center p-6 text-center">
+              <p className="text-gray-600 mb-6">{card.content}</p>
+              <span className="inline-block px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
+                {card.type}
+              </span>
+            </div>
           </div>
-        </div>
-      ) : (
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
-          <div className="ag-theme-alpine" style={{ height: "calc(100vh - 250px)", width: "100%" }}>
-            <AgGridReact
-              rowData={rowData}
-              columnDefs={columnDefs}
-              theme="legacy"
-              defaultColDef={{
-                resizable: true,
-                sortable: true,
-                filter: true,
-              }}
-              animateRows={true}
-              rowSelection="multiple"
-              suppressRowClickSelection={true}
-              pagination={true}
-              paginationPageSize={50}
-            />
-          </div>
-        </div>
-      )}
+        ))}
+      </div>
     </div>
   );
 }
