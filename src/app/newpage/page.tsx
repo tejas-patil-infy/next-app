@@ -1,7 +1,7 @@
 "use client"
 import Link from "next/link";
 import { useState } from "react";
-// import { Button } from 'react-bootstrap';
+import { Button, CheckBox } from "react-rodeo-lib";
 
 const NewPage = () => {
   const [record, setRecord] = useState("one");
@@ -20,7 +20,7 @@ const NewPage = () => {
         {/* <Button variant="outline-secondary" size="sm">Back</Button> */}
         <button className="px-4 py-2 bg-blue-600 text-white rounded cursor-pointer">Back</button>
       </Link>
-      <div className="my-4 flex flex-col max-w-[250px]">
+      <div className="my-4 flex flex-col max-w-[250px]" style={{color: "black"}}>
         <div>
           Select Record : &nbsp;
           <select className="outline my-2 p-1 cursor-pointer" onChange={(e) => handleSelect(e)}>
@@ -33,6 +33,8 @@ const NewPage = () => {
           {/* <Button variant="outline-secondary" size="sm">Go new dynamic record page</Button> */}
           <button className="px-4 py-2 bg-blue-600 text-white rounded cursor-pointer">Go to dynamic record page</button>
         </Link>
+        <Button label="Rodeo" onClick={() => alert("Button from React Rodeo lib")} />
+        <CheckBox />
       </div>
     </div>
   )
