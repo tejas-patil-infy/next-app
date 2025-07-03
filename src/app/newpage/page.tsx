@@ -1,7 +1,6 @@
 "use client"
 import Link from "next/link";
 import { useState } from "react";
-import { Button, CheckBox } from "react-rodeo-lib";
 
 const NewPage = () => {
   const [record, setRecord] = useState("one");
@@ -33,8 +32,6 @@ const NewPage = () => {
           {/* <Button variant="outline-secondary" size="sm">Go new dynamic record page</Button> */}
           <button className="px-4 py-2 bg-blue-600 text-white rounded cursor-pointer">Go to dynamic record page</button>
         </Link>
-        <Button label="Rodeo" onClick={() => alert("Button from React Rodeo lib")} />
-        <CheckBox />
       </div>
     </div>
   )
