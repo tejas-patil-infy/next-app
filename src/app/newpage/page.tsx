@@ -1,6 +1,7 @@
 "use client"
 import Link from "next/link";
 import { useState } from "react";
+// import { RodeoBanner } from "react-rodeo-lib";
 
 const NewPage = () => {
   const [record, setRecord] = useState("one");
@@ -33,6 +34,11 @@ const NewPage = () => {
           <button className="px-4 py-2 bg-blue-600 text-white rounded cursor-pointer">Go to dynamic record page</button>
         </Link>
       </div>
+      {/* <RodeoBanner header="Notification" type="info" description="desc"/>
+      <RodeoBanner header="Notification" type="warning" description="desc" size="large" actionText="Action" onAction={()=> ''}/>
+      <RodeoBanner header="Notification" type="error" description="desc" size="small"/>
+      <RodeoBanner header="Notification" type="success" description="desc" actionText="Action" onAction={()=> alert('Hii ac')}/>
+      <RodeoBanner header="Notification" type="alert" description="desc"  actionText="Action" onAction={()=> ''} closable={false}/> */}
     </div>
   )
 }
