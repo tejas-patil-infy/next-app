@@ -1,0 +1,158 @@
+/* banner.css */
+.rodeo-banner-container {
+    display: flex;
+    width: 100%;
+  }
+  
+  .rodeo-banner-container.left {
+    justify-content: flex-start;
+  }
+  
+  .rodeo-banner-container.center {
+    justify-content: center;
+  }
+  
+  .rodeo-banner-container.right {
+    justify-content: flex-end;
+  }
+  
+  .rodeo-banner {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-width: 310px;
+    border-radius: 6px;
+    padding: 0 22px;
+  }
+  
+  .rodeo-banner.large {
+    min-height: 66px;
+  }
+  
+  .rodeo-banner.small {
+    min-height: 42px;
+  }
+  
+  .rodeo-banner-icon {
+    flex-shrink: 0;
+    margin-right: 12px;
+  }
+  
+  .rodeo-banner-content {
+    flex: 1;
+  }
+  
+  .rodeo-banner-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .rodeo-banner-text {
+    color: #1F2937;
+  }
+  
+  .rodeo-banner-title {
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 20px;
+    margin: 0;
+  }
+  
+  .rodeo-banner-description {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  
+  .rodeo-banner-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .rodeo-banner-button {
+    font-size: 14px;
+    padding: 2px 12px;
+    font-weight: 500;
+    color: #1F2937;
+    cursor: pointer;
+    border: 1px solid #000;
+    border-radius: 4px;
+    background-color: transparent;
+  }
+  
+  .rodeo-banner-separator {
+    font-size: 26px;
+    margin: 0 10px;
+  }
+  
+  .rodeo-banner-close {
+    color: #6B7280;
+    cursor: pointer;
+    margin-left: 4px;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+  }
+  
+  /* Color variants */
+  .rodeo-banner.info {
+    background-color: #EFF6FF;
+    border: 1px solid #0071E3;
+  }
+  
+  .rodeo-banner.warning {
+    background-color: #FEFCE8;
+    border: 1px solid #FFCC00;
+  }
+  
+  .rodeo-banner.error {
+    background-color: #FEE2E2;
+    border: 1px solid #E30000;
+  }
+  
+  .rodeo-banner.success {
+    background-color: #ECFDF5;
+    border: 1px solid #008009;
+  }
+  
+  .rodeo-banner.alert {
+    background-color: #F5F3FF;
+    border: 1px solid #F56300;
+  }
+  
+  /* Icon colors */
+  .rodeo-banner-icon.info {
+    color: #3B82F6;
+  }
+  
+  .rodeo-banner-icon.warning {
+    color: #D97706;
+  }
+  
+  .rodeo-banner-icon.error {
+    color: #EF4444;
+  }
+  
+  .rodeo-banner-icon.success {
+    color: #10B981;
+  }
+  
+  .rodeo-banner-icon.alert {
+    color: #8B5CF6;
+  }
+
+  .rodeo-banner-main-icon {
+    height: 24px;
+    width: 24px;
+  }
+  
+  .rodeo-banner-main-icon.large {
+    height: 32px;
+    width: 32px;
+  }
+  
+  .rodeo-banner-close-icon {
+    height: 20px;
+    width: 20px;
+  }

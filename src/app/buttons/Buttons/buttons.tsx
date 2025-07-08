@@ -1,0 +1,138 @@
+import React from 'react';
+
+type ButtonType = 'primary' | 'primary-neutral' | 'secondary' | 'secondary-neutral' | 'tertiary';
+type ButtonSize = 'small' | 'medium' | 'large';
+
+export interface RodeoButtonProps {
+  label: string;
+  type?: ButtonType;
+  size?: ButtonSize;
+  onClick?: () => void;
+  disabled?: boolean;
+  className?: string;
+}
+
+const styles = `
+  .rodeo-button {
+    padding: 8px 16px;
+    border-radius: 8px;
+    width: fit-content;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+  }
+  
+  .rodeo-button.primary {
+    background-color: rgb(0, 113, 227);
+    color: #FAFAFA;
+  }
+  
+  .rodeo-button.primary:hover:not(.disabled) {
+    background-color: rgb(0, 95, 200);
+  }
+  
+  .rodeo-button.primary-neutral {
+    background-color: rgb(29, 29, 31);
+    color: #FAFAFA;
+  }
+  
+  .rodeo-button.primary-neutral:hover:not(.disabled) {
+    background-color: rgb(50, 50, 52);
+  }
+  
+  .rodeo-button.secondary {
+    background-color: #FAFAFA;
+    color: rgb(0, 113, 227);
+    border: 1px solid rgb(0, 113, 227);
+  }
+  
+  .rodeo-button.secondary:hover:not(.disabled) {
+    background-color: rgb(240, 245, 250);
+  }
+  
+  .rodeo-button.secondary-neutral {
+    background-color: #FAFAFA;
+    color: rgb(29, 29, 31);
+    border: 1px solid rgb(29, 29, 31);
+  }
+  
+  .rodeo-button.secondary-neutral:hover:not(.disabled) {
+    background-color: rgb(245, 245, 245);
+  }
+  
+  .rodeo-button.tertiary {
+    background-color: transparent;
+    color: rgb(0, 113, 227);
+    text-decoration: underline;
+    padding: 4px 8px;
+  }
+  
+  .rodeo-button.tertiary:hover:not(.disabled) {
+    color: rgb(0, 95, 200);
+  }
+  
+  .rodeo-button.small {
+    padding: 4px 12px;
+    font-size: 12px;
+    min-height: 28px;
+  }
+  
+  .rodeo-button.medium {
+    padding: 8px 16px;
+    font-size: 14px;
+    min-height: 36px;
+  }
+  
+  .rodeo-button.large {
+    padding: 12px 24px;
+    font-size: 16px;
+    min-height: 44px;
+  }
+  
+  .rodeo-button.disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+  
+  .rodeo-button:focus-visible {
+    outline: 2px solid rgb(0, 95, 200);
+    outline-offset: 2px;
+  }
+`;
+
+const RodeoButton: React.FC<RodeoButtonProps> = ({
+  label,
+  onClick,
+  size = 'medium',
+  type = 'primary',
+  disabled = false,
+  className = '',
+}) => {
+  const handleClick = () => {
+    if (!disabled && onClick) {
+      onClick();
+    }
+  };
+
+  return (
+    <>
+      <style>{styles}</style>
+      <button
+        className={`rodeo-button ${type} ${size} ${disabled ? 'disabled' : ''} ${className}`}
+        onClick={handleClick}
+        disabled={disabled}
+        aria-disabled={disabled}
+      >
+        {label}
+      </button>
+    </>
+  );
+};
+
+export default RodeoButton;
